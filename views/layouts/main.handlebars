@@ -3,11 +3,11 @@
     <head>
         <title>
             Meadowlark Travel
-            {{#if showTests}}
-                <link rel="stylesheet" href="/vendor/mocha.css">
-            {{/if}}
-            <script src="https://cdn.bootcss.com/jquery/2.0.2/jquery.min.js"></script>
         </title>
+        {{#if showTests}}
+            <link rel="stylesheet" href="/vendor/mocha.css">
+        {{/if}}
+        <script src="https://cdn.bootcss.com/jquery/2.0.2/jquery.min.js"></script>
     </head>
     <body>
         <header>
@@ -19,13 +19,16 @@
             <script src="/vendor/mocha.js"></script>
             <script src="/vendor/chai.js"></script>
             <script>
-                mocha.ui('tdd').run()
+                mocha.ui('tdd')
                 var assert = chai.assert
             </script>
             <script src="/qa/tests-global.js"></script>
             {{#if pageTestScript}}
                 <script src="{{pageTestScript}}"></script>
             {{/if}}
+            <script>
+                mocha.run()
+            </script>
         {{/if}}
     </body>
 </html>
